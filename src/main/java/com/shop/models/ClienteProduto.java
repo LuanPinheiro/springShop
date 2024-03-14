@@ -1,6 +1,5 @@
 package com.shop.models;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,16 +31,16 @@ public class ClienteProduto {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Long getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
-	public void setCliente(Long cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public Long getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
-	public void setProduto(Long produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 	public Pedido getPedido() {
