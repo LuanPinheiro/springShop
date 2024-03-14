@@ -1,5 +1,8 @@
 package com.shop.models;
 
+import com.shop.dtos.ClienteCadastro;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,10 +15,20 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	@Column(unique = true)
+	private String cpf;
 	private Boolean ativo;
 	
-	public Cliente() {}
+	public Cliente() {
+		this.ativo = false;
+	}
 	
+	public Cliente(ClienteCadastro cliente) {
+		this.nome = cliente.nome();
+		this.cpf = cliente.cpf();
+		this.ativo = true;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -33,6 +46,13 @@ public class Cliente {
 	}
 	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	
 	
