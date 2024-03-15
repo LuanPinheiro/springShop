@@ -1,7 +1,7 @@
 package com.shop.models;
 
 public enum PedidoStatus {
-	CARRINHO,
+	PROCESSANDO,
 	ENTREGANDO,
 	FINALIZADO,
 	CANCELADO
