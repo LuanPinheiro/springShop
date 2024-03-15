@@ -28,8 +28,10 @@ public class ProdutoController {
 	
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public Page<ProdutoListar> getProdutos(@RequestParam(name = "page", required = false) Integer page){
-		return produtoService.getProdutos(page != null ? page : 0);
+	public Page<ProdutoListar> getProdutos(
+			@RequestParam(name = "page", required = false) Integer page,
+			@RequestParam(name = "disponivel", required = false) Boolean disponivel){
+		return produtoService.getProdutos(page != null ? page : 0, disponivel);
 	}
 	
 	@PostMapping

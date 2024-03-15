@@ -3,6 +3,7 @@ package com.shop.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.shop.dtos.produto.ProdutoCadastro;
@@ -19,10 +20,17 @@ public class ProdutoService {
 	@Autowired
 	private ProdutoRepository produtoRepository;
 
-	public Page<ProdutoListar> getProdutos(int page) {
-		return produtoRepository
-				.findAll(PageRequest.of(0, 10))
-				.map(ProdutoListar::new);
+	public Page<ProdutoListar> getProdutos(Integer page, Boolean disponivel) {
+		Page<Produto> produtos;
+		Pageable pageable = PageRequest.of(0, 10);
+		
+		if(disponivel != null)
+			produtos = produtoRepository.findByDisponivel(disponivel, pageable);
+		else
+			produtos = produtoRepository.findAll(pageable);
+		
+			
+		return produtos.map(ProdutoListar::new);
 	}
 
 	public void postProduto(ProdutoCadastro produto) {
