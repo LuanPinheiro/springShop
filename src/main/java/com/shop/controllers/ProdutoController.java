@@ -13,40 +13,40 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shop.dtos.cliente.ClienteCadastro;
-import com.shop.dtos.cliente.ClienteListar;
-import com.shop.services.ClienteService;
+import com.shop.dtos.produto.ProdutoCadastro;
+import com.shop.dtos.produto.ProdutoListar;
+import com.shop.services.ProdutoService;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/clientes")
-public class ClienteController {
-	
+@RequestMapping("/produtos")
+public class ProdutoController {
+
 	@Autowired
-	private ClienteService clienteService;
+	private ProdutoService produtoService;
 	
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
-	public Page<ClienteListar> getClientes(@RequestParam(name = "page", required = false) Integer page){
-		return clienteService.getClientes(page != null ? page : 0);
+	public Page<ProdutoListar> getProdutos(@RequestParam(name = "page", required = false) Integer page){
+		return produtoService.getProdutos(page != null ? page : 0);
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public void postCliente(@Valid @RequestBody ClienteCadastro cliente) {
-		clienteService.postCliente(cliente);
+	public void postProduto(@Valid @RequestBody ProdutoCadastro produto) {
+		produtoService.postProduto(produto);
 	}
 	
 	@PutMapping
 	@ResponseStatus(HttpStatus.OK)
-	public void putCliente(@RequestParam(name = "cpf") String cpf, @RequestBody ClienteCadastro cliente) {
-		clienteService.putCliente(cliente, cpf);
+	public void putProduto(@RequestParam(name = "id") Long id, @RequestBody ProdutoCadastro produto) {
+		produtoService.putProduto(produto, id);
 	}
 	
 	@DeleteMapping
 	@ResponseStatus(HttpStatus.OK)
-	public void deleteCliente(@RequestParam("cpf") String cpf) {
-		clienteService.deleteCliente(cpf);
+	public void deleteProduto(@RequestParam("id") Long id) {
+		produtoService.deleteProduto(id);
 	}
 }

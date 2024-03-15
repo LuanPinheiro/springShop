@@ -5,8 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.shop.dtos.ClienteCadastro;
-import com.shop.dtos.ClienteListar;
+import com.shop.dtos.cliente.ClienteCadastro;
+import com.shop.dtos.cliente.ClienteListar;
 import com.shop.exceptions.RegistroDeletedException;
 import com.shop.exceptions.RegistroExistenteException;
 import com.shop.exceptions.RegistroNotFoundException;

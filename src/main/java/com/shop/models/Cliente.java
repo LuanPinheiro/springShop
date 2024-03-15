@@ -1,6 +1,6 @@
 package com.shop.models;
 
-import com.shop.dtos.ClienteCadastro;
+import com.shop.dtos.cliente.ClienteCadastro;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

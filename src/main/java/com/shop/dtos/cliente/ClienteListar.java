@@ -1,4 +1,4 @@
-package com.shop.dtos;
+package com.shop.dtos.cliente;
 
 import com.shop.models.Cliente;
 

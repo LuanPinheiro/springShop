@@ -18,24 +18,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class MainExceptionHandler extends ResponseEntityExceptionHandler {
 	
-	@ExceptionHandler(RegistroExistenteException.class)
-	public ResponseEntity<?> handleRegistroExistenteException(RegistroExistenteException ex) {
-	    
-		Map<String, String> errors = new HashMap<String, String>();
-        errors.put("message", ex.getMessage());
-	    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
-	}
-	
-	@ExceptionHandler(RegistroDeletedException.class)
-	public ResponseEntity<?> handleRegistroDeletedException(RegistroDeletedException ex) {
-	    
-		Map<String, String> errors = new HashMap<String, String>();
-        errors.put("message", ex.getMessage());
-	    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
-	}
-	
-	@ExceptionHandler(RegistroNotFoundException.class)
-	public ResponseEntity<?> handleRegistroNotFoundException(RegistroNotFoundException ex) {
+	@ExceptionHandler(MessageRuntimeException.class)
+	public ResponseEntity<?> handleMessageRuntimeException(MessageRuntimeException ex) {
 	    
 		Map<String, String> errors = new HashMap<String, String>();
         errors.put("message", ex.getMessage());
