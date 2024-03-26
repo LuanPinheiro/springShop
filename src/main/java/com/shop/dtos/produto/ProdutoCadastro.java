@@ -5,5 +5,6 @@ import jakarta.validation.constraints.NotNull;
 
 public record ProdutoCadastro(
 		@NotBlank(message = "Nome não pode ser vazio") String nome,
-		@NotNull(message = "Estoque precisa ser indicado") Integer estoque) {
+		@NotNull(message = "Estoque precisa ser indicado") Integer estoque,
+		@NotNull(message = "Por favor indique a disponibilidade") Boolean disponivel) {
 }

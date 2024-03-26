@@ -43,7 +43,7 @@ public class ProdutoService {
 		
 		novoProduto.setNome(produto.nome());
 		novoProduto.setEstoque(produto.estoque());
-		novoProduto.setDisponivel(true);
+		novoProduto.setDisponivel(produto.disponivel());
 		produtoRepository.save(novoProduto);
 	}
 	
@@ -54,6 +54,7 @@ public class ProdutoService {
 		
 		produtoEditado.setNome(produto.nome() != null ? produto.nome() : produtoEditado.getNome());
 		produtoEditado.setEstoque(produto.estoque() != null ? produto.estoque() : produtoEditado.getEstoque());
+		produtoEditado.setDisponivel(produto.disponivel() != null ? produto.disponivel() : produtoEditado.isDisponivel());
 		produtoRepository.save(produtoEditado);
 	}
 	
